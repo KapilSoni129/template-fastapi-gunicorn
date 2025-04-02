@@ -1,0 +1,8 @@
+fastapi
+pydantic
+pydantic-settings
+pinecone
+uvicorn
+gunicorn
+python-dotenv
+openai

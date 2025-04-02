@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+  template-fastapi:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: template-fastapi
+    ports:
+      - "80:8000"
+    restart: always
+    env_file:
+      - .env
+    logging:
+      driver: awslogs
+      options:
+        awslogs-group: cloudwatch-group-name
+        awslogs-region: aws-region-name
+        awslogs-stream: cloudwatch-stream-name
+    volumes:
+      - ./app:/app/app  # Optional: live code reload (for dev)
